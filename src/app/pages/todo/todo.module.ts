@@ -6,6 +6,7 @@ import { MaterialModule } from 'src/app/material.module';
 import { TodoRoutingModule } from './todo-routing.module';
 import { TodoComponent } from './todo.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
+import { TodoService } from 'src/app/todo.service';
 
 @NgModule({
   declarations: [TodoComponent, TodoFormComponent],
@@ -16,6 +17,6 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
     TodoRoutingModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [TodoService],
 })
 export class TodoModule {}
