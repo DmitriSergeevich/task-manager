@@ -26,7 +26,7 @@
   <div class="todo-list">
     <div *ngFor="let todo of todoItems" class="todo-item">
       <div class="todo-item__header">
-        <h2>{{todo.title}}</h2>
+        <h2 class="todo-item__title">{{todo.title}}</h2>
         <div>Deadline:{{todo.deadline | date}}</div>
       </div>
 
