@@ -1,9 +1,10 @@
-<div>
-  <ul>
-    <li><a [routerLink]="'/'">Main</a></li>
-    <li><a [routerLink]="'/todo'">ToDo</a></li>
-  </ul>
-</div>
-<div>
+<mat-toolbar>
+  <div class="main-wrapper">
+    <a mat-button [routerLink]="'/'">Main</a>
+    <a mat-button [routerLink]="'/todo'">ToDo</a>
+  </div>
+</mat-toolbar>
+
+<div class="main-wrapper">
   <router-outlet></router-outlet>
 </div>

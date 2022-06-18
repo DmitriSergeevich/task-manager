@@ -1,0 +1,22 @@
+<form [formGroup]="form" class="todo-form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Название задачи</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Описание задачи</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <div class="todo-form__flex-items">
+    <div class="todo-form__date-picker">
+      <mat-form-field appearance="fill">
+        <mat-label>Укажите дату дедлайна</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="deadline">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button [disabled]="form.invalid" mat-raised-button>Создать</button>
+  </div>
+</form>
