@@ -5,9 +5,17 @@ import { AppComponent } from './app.component';
 import { TodoModule } from './pages/todo/todo.module';
 import { MainComponent } from './pages/main/main.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [AppComponent, MainComponent],
-  imports: [BrowserModule, AppRoutingModule, TodoModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    TodoModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
