@@ -7,12 +7,6 @@ const routes: Routes = [
   {
     path: 'todo',
     component: TodoComponent,
-    // children: [
-    //   {
-    //     path: 'create',
-    //     component: TodoFormComponent,
-    //   },
-    // ],
   },
   {
     path: 'todo/create',
