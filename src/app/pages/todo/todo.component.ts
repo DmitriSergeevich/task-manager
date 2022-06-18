@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoService, TTodo } from 'src/app/todo.service';
 
 @Component({
@@ -12,24 +13,19 @@ export class TodoComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.todoService.getTodoList().then((data) => {
       this.todoItems = data;
     });
-    // this.form = new FormGroup({
-    //   title: new FormControl('', Validators.required),
-    //   description: new FormControl('', Validators.required),
-    //   deadline: new FormControl('', Validators.required),
-    // });
   }
-  // onSubmit() {
-  //   this.todoItems.push({
-  //     id: new Date().getTime().toString(),
-  //     title: this.form.value.title,
-  //     description: this.form.value.description,
-  //     deadline: this.form.value.deadline,
-  //   });
-  // }
+
+  goToCreatePage() {
+    this.router.navigate(['create'], { relativeTo: this.route });
+  }
 }

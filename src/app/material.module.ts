@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -22,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TodoService } from 'src/app/todo.service';
 
 @Component({
@@ -7,10 +8,11 @@ import { TodoService } from 'src/app/todo.service';
   templateUrl: './todo-form.component.html',
   styleUrls: ['../../../app.component.less', './todo-form.component.less'],
 })
+@Injectable()
 export class TodoFormComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -19,6 +21,9 @@ export class TodoFormComponent implements OnInit {
       deadline: new FormControl('', Validators.required),
     });
   }
+  goToTodo() {
+    this.router.navigate(['/todo']);
+  }
   onSubmit() {
     this.todoService.addTodo({
       id: new Date().getTime().toString(),
@@ -26,11 +31,6 @@ export class TodoFormComponent implements OnInit {
       description: this.form.value.description,
       deadline: this.form.value.deadline,
     });
-    // this.todoItems.push({
-    //   id: new Date().getTime().toString(),
-    //   title: this.form.value.title,
-    //   description: this.form.value.description,
-    //   deadline: this.form.value.deadline,
-    // });
+    this.goToTodo();
   }
 }

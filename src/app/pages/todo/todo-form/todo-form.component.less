@@ -1,4 +1,13 @@
 .todo-form {
+  &__btns {
+    display: flex;
+    gap: 20px
+  }
+  &__btn{
+    &--secondary {
+      color: gray;
+    }
+  }
   .mat-form-field{
     width: 100%;
   }
@@ -11,5 +20,9 @@
   }
   input,textarea {
     color: white
+  }
+  button {
+    height: 53px;
+    width: 120px;
   }
 }
