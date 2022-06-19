@@ -8,9 +8,15 @@ import { TodoComponent } from './todo.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoService } from 'src/app/todo.service';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { DeadlineDirective } from 'src/app/directives/deadline.directive';
 
 @NgModule({
-  declarations: [TodoComponent, TodoFormComponent, TodoItemComponent],
+  declarations: [
+    TodoComponent,
+    TodoFormComponent,
+    TodoItemComponent,
+    DeadlineDirective,
+  ],
   imports: [
     CommonModule,
     RouterModule,
