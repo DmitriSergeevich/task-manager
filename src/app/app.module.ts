@@ -7,8 +7,9 @@ import { MainComponent } from './pages/main/main.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, AppHeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
