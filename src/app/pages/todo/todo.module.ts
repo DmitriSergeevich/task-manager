@@ -9,6 +9,7 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoService } from 'src/app/todo.service';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { DeadlineDirective } from 'src/app/directives/deadline.directive';
+import { RuDatePipe } from 'src/app/pipes/ruDate.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DeadlineDirective } from 'src/app/directives/deadline.directive';
     TodoFormComponent,
     TodoItemComponent,
     DeadlineDirective,
+    RuDatePipe,
   ],
   imports: [
     CommonModule,
