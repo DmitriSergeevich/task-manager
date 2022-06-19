@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TodoService, TTodo } from 'src/app/todo.service';
+import { todoRemoveTrigger } from './todo.animations';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['../../app.component.less', './todo.component.less'],
+  animations: [todoRemoveTrigger],
 })
 export class TodoComponent implements OnInit {
   todoItems!: TTodo[];
