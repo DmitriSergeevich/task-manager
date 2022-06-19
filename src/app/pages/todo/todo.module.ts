@@ -7,9 +7,10 @@ import { TodoRoutingModule } from './todo-routing.module';
 import { TodoComponent } from './todo.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoService } from 'src/app/todo.service';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
-  declarations: [TodoComponent, TodoFormComponent],
+  declarations: [TodoComponent, TodoFormComponent, TodoItemComponent],
   imports: [
     CommonModule,
     RouterModule,

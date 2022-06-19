@@ -8,17 +8,6 @@
 
   <div *ngIf="todoItems; else loader" class="todo-list">
     <button (click)="goToCreatePage()" mat-raised-button>Добавить задачу</button>
-    <div *ngFor="let todo of todoItems" class="todo-item" @todoRemoveTrigger>
-      <div class="todo-item__row">
-        <h2 class="todo-item__title">{{todo.title}}</h2>
-        <div>Deadline:{{todo.deadline | date}}</div>
-      </div>
-      <div class="todo-item__row">
-        <p>{{todo.description}}</p>
-        <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
-      </div>
-
-    </div>
-
+    <app-todo-item @todoRemoveTrigger *ngFor="let todo of todoItems" [todoItem]="todo"></app-todo-item>
   </div>
 </div>

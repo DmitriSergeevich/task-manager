@@ -30,8 +30,4 @@ export class TodoComponent implements OnInit {
   goToCreatePage() {
     this.router.navigate(['create'], { relativeTo: this.route });
   }
-
-  removeTodo(id: string) {
-    this.todoService.removeTodo(id);
-  }
 }
