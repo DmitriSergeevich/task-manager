@@ -42,4 +42,9 @@ export class TodoService {
   addTodo(todo: TTodo) {
     this.todoItems.push(todo);
   }
+
+  removeTodo(id: string) {
+    const index = this.todoItems.findIndex((item) => item.id === id);
+    this.todoItems.splice(index, 1);
+  }
 }
