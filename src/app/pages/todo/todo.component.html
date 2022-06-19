@@ -8,6 +8,7 @@
 
   <div *ngIf="todoItems; else loader" class="todo-list">
     <button (click)="goToCreatePage()" mat-raised-button>Добавить задачу</button>
-    <app-todo-item @todoRemoveTrigger *ngFor="let todo of todoItems" [todoItem]="todo"></app-todo-item>
+    <app-todo-item *ngFor="let todo of todoItems; let i = index" @opacityTrigger [todoItem]="todo">
+    </app-todo-item>
   </div>
 </div>

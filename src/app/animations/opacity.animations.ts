@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 
-export const todoRemoveTrigger = trigger('todoRemoveTrigger', [
+export const opacityTrigger = trigger('opacityTrigger', [
   transition('void => *', [
     style({
       opacity: 0,

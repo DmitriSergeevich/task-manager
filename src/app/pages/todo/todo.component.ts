@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { opacityTrigger } from 'src/app/animations/opacity.animations';
 import { TodoService, TTodo } from 'src/app/todo.service';
-import { todoRemoveTrigger } from './todo.animations';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['../../app.component.less', './todo.component.less'],
-  animations: [todoRemoveTrigger],
+  animations: [opacityTrigger],
 })
 export class TodoComponent implements OnInit {
   todoItems!: TTodo[];
