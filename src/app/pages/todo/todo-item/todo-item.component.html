@@ -1,7 +1,7 @@
 <div class="todo-item">
   <div class="todo-item__row">
     <h2 class="todo-item__title">{{todo.title}}</h2>
-    <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | date}}</span></div>
+    <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | ruDate}}</span></div>
   </div>
   <div class="todo-item__row">
     <p>{{todo.description}}</p>

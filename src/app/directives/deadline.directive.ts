@@ -11,7 +11,6 @@ export class DeadlineDirective implements OnInit {
   ngOnInit(): void {
     const today = new Date();
     const isMiss = new Date(this.date) < today;
-    this.element.nativeElement.style.fontSize = '18px';
     if (isMiss) this.element.nativeElement.style.color = '#d70000';
   }
 }
