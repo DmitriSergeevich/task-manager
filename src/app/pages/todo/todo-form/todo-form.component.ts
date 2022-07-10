@@ -21,9 +21,11 @@ export class TodoFormComponent implements OnInit {
       deadline: new FormControl('', Validators.required),
     });
   }
+
   goToTodo() {
-    this.router.navigate(['/todo']);
+    this.router.navigate(['/']);
   }
+
   onSubmit() {
     this.todoService.addTodo({
       id: new Date().getTime().toString(),

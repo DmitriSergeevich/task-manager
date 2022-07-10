@@ -8,7 +8,9 @@
 
   <div *ngIf="todoItems; else loader" class="todo-list">
     <button (click)="goToCreatePage()" mat-raised-button>Добавить задачу</button>
-    <app-todo-item *ngFor="let todo of todoItems; let i = index" @opacityTrigger [todoItem]="todo">
-    </app-todo-item>
+    <cdk-drop-list (cdkDropListDropped)="drop($event)">
+      <app-todo-item cdkDrag *ngFor="let todo of todoItems; let i = index" @opacityTrigger [todoItem]="todo">
+      </app-todo-item>
+    </cdk-drop-list>
   </div>
 </div>

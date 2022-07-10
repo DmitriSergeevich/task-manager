@@ -10,7 +10,17 @@ export class DeadlineDirective implements OnInit {
 
   ngOnInit(): void {
     const today = new Date();
-    const isMiss = new Date(this.date) < today;
-    if (isMiss) this.element.nativeElement.style.color = '#d70000';
+    const preDeadlineDays = 3;
+    const preDeadlineDate = new Date(today);
+    preDeadlineDate.setDate(today.getDate() + preDeadlineDays);
+
+    const date = new Date(this.date);
+    if (
+      date.getFullYear() === preDeadlineDate.getFullYear() &&
+      date.getMonth() === preDeadlineDate.getMonth() &&
+      date.getDate() <= preDeadlineDate.getDate()
+    ) {
+      this.element.nativeElement.style.color = '#d70000';
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,5 +30,9 @@ export class TodoComponent implements OnInit {
 
   goToCreatePage() {
     this.router.navigate(['create'], { relativeTo: this.route });
+  }
+
+  drop(event: CdkDragDrop<TTodo[]>) {
+    moveItemInArray(this.todoItems, event.previousIndex, event.currentIndex);
   }
 }
