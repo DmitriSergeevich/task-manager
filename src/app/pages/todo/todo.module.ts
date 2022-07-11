@@ -10,6 +10,7 @@ import { TodoService } from 'src/app/todo.service';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { DeadlineDirective } from 'src/app/directives/deadline.directive';
 import { RuDatePipe } from 'src/app/pipes/ruDate.pipe';
+import { TodoViewComponent } from './todo-view/todo-view.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RuDatePipe } from 'src/app/pipes/ruDate.pipe';
     TodoItemComponent,
     DeadlineDirective,
     RuDatePipe,
+    TodoViewComponent,
   ],
   imports: [
     CommonModule,

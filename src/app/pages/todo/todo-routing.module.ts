@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TodoViewComponent } from './todo-view/todo-view.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
-import { TodoComponent } from './todo.component';
 
 const routes: Routes = [
   {
     path: 'create',
     component: TodoFormComponent,
+  },
+  {
+    path: 'edit/:id',
+    component: TodoFormComponent,
+  },
+  {
+    path: ':id',
+    component: TodoViewComponent,
   },
 ];
 

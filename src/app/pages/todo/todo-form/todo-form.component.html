@@ -1,6 +1,10 @@
 <div class="page-wrapper">
-  <h1>Добавление задачи</h1>
-  <form [formGroup]="form" class="todo-form" (ngSubmit)="onSubmit()">
+  <h1 *ngIf="!id; else editCaseHeader">Добавление задачи</h1>
+  <ng-template #editCaseHeader>
+    <h1>Редактирование задачи</h1>
+  </ng-template>
+
+  <form *ngIf="!isTodoLoading; else loader" [formGroup]="form" class="todo-form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Название задачи</mat-label>
       <input matInput formControlName="title">
@@ -21,10 +25,19 @@
       </div>
       <div class="todo-form__btns">
         <button mat-stroked-button class="btn--secondary" (click)="goToTodo()">Отмена</button>
-        <button [disabled]="form.invalid" mat-raised-button>Создать</button>
+        <button *ngIf="!id; else editCaseButton" [disabled]="form.invalid" mat-raised-button>Создать</button>
+        <ng-template #editCaseButton>
+          <button [disabled]="form.invalid" mat-raised-button>Сохранить</button>
+        </ng-template>
       </div>
 
     </div>
   </form>
+
+  <ng-template #loader>
+    <div ng class="loader">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
 
 </div>

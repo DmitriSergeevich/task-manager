@@ -1,10 +1,16 @@
 <div class="todo-item">
   <div class="todo-item__row">
-    <h2 class="todo-item__title">{{todo.title}}</h2>
+    <a [routerLink]="'/' + todo.id">
+      <h2 class="todo-item__title">{{todo.title}}</h2>
+    </a>
     <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | ruDate}}</span></div>
   </div>
   <div class="todo-item__row">
     <p>{{todo.description}}</p>
-    <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
+    <div class="todo-item__control">
+      <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
+      <button mat-stroked-button class="btn--secondary" (click)="editTodo(todo.id)">Редактировать</button>
+    </div>
+
   </div>
 </div>
