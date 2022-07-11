@@ -45,8 +45,31 @@ export class TodoService {
     });
   }
 
+  getTodo(id: string) {
+    return new Promise<TTodo>((resolve, reject) => {
+      setTimeout(() => {
+        const todo = this.todoItems.find((item) => item.id === id);
+        if (todo) {
+          resolve(todo);
+        } else {
+          reject('Такой элемент не обнаружен');
+        }
+      }, 1000);
+    });
+  }
+
   addTodo(todo: TTodo) {
     this.todoItems.push(todo);
+  }
+
+  editTodo(todo: TTodo) {
+    this.todoItems.map((item) => {
+      if (item.id === todo.id) {
+        item.deadline = todo.deadline;
+        item.description = todo.description;
+        item.title = todo.title;
+      }
+    });
   }
 
   removeTodo(id: string) {

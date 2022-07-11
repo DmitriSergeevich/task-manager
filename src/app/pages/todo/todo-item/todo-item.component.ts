@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoService, TTodo } from 'src/app/todo.service';
 
 @Component({
@@ -10,11 +11,15 @@ import { TodoService, TTodo } from 'src/app/todo.service';
 export class TodoItemComponent implements OnInit {
   @Input('todoItem') todo!: TTodo;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private router: Router) {}
 
   ngOnInit(): void {}
 
   removeTodo(id: string) {
     this.todoService.removeTodo(id);
+  }
+
+  editTodo(id: string) {
+    this.router.navigate(['edit/' + id]);
   }
 }
