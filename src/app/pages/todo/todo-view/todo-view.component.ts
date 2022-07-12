@@ -8,9 +8,11 @@ import { TodoService } from 'src/app/todo.service';
   styleUrls: ['./todo-view.component.less'],
 })
 export class TodoViewComponent implements OnInit {
-  id: string | null = null;
-  title: string | null = null;
-  description: string | null = null;
+  id: string = '';
+  title: string = '';
+  description: string = '';
+  deadline: string = '';
+  isTodoLoading = false;
 
   constructor(
     private todoService: TodoService,
@@ -20,14 +22,31 @@ export class TodoViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    if (this.id)
-      this.todoService.getTodo(this.id).then((data) => {
-        this.title = data.title;
-        this.description = data.description;
-      });
+    if (this.id) this.getTodo();
   }
 
   goToTodo() {
     this.router.navigate(['/']);
+  }
+
+  getTodo() {
+    this.isTodoLoading = true;
+    this.todoService
+      .getTodo(this.id)
+      .then((data) => {
+        this.title = data.title;
+        this.description = data.description;
+        this.deadline = data.deadline;
+      })
+      .finally(() => (this.isTodoLoading = false));
+  }
+
+  removeTodo() {
+    this.todoService.removeTodo(this.id);
+    this.goToTodo();
+  }
+
+  editTodo() {
+    this.router.navigate(['edit/' + this.id]);
   }
 }
