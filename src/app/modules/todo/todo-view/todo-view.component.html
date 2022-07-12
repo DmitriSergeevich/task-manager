@@ -9,8 +9,8 @@
     <div class="todo-view__deadline">Deadline: <span deadline [date]="deadline">{{deadline | ruDate}}</span></div>
     <p class="todo-view__description"> {{description}}</p>
     <div class="todo-view__control">
-      <button mat-flat-button class="btn--secondary" (click)="editTodo">Редактировать</button>
-      <button mat-stroked-button class="btn--secondary" (click)="removeTodo">Удалить</button>
+      <button mat-flat-button class="btn--secondary" (click)="editTodo()">Редактировать</button>
+      <button mat-stroked-button class="btn--secondary" (click)="removeTodo()">Удалить</button>
     </div>
   </div>
 

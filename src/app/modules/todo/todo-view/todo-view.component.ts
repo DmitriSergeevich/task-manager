@@ -5,7 +5,7 @@ import { TodoService } from 'src/app/todo.service';
 @Component({
   selector: 'app-todo-view',
   templateUrl: './todo-view.component.html',
-  styleUrls: ['./todo-view.component.less'],
+  styleUrls: ['../../../app.component.less', './todo-view.component.less'],
 })
 export class TodoViewComponent implements OnInit {
   id: string = '';
