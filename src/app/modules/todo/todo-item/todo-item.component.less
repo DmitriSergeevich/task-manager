@@ -15,6 +15,18 @@
     justify-content: space-between;
   }
 
+  &__info {
+    display: flex;
+    gap: 20px;
+
+    &--complete {
+      color: green;
+    }
+    &--uncomplete {
+      color: #3046b8;
+    }
+  }
+
   &__title {
     font-size: 20px;
     color: rgb(242, 237, 237);
@@ -29,7 +41,11 @@
   }
   &__control {
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
     height: fit-content;
+    &-group {
+      display: flex;
+      gap: 10px;
+    }
   }
 }

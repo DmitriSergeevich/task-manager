@@ -3,14 +3,26 @@
     <a class="todo-item__title" [routerLink]="'/' + todo.id">
       {{todo.title}}
     </a>
-    <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | ruDate}}</span></div>
+    <div class="todo-item__info">
+      <div *ngIf="todo.isComplete; else complete" class="todo-item__info--complete">Завершено</div>
+      <ng-template #complete>
+        <div class="todo-item__info--uncomplete">В работе</div>
+      </ng-template>
+      <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | ruDate}}</span></div>
+    </div>
+
+
+
   </div>
   <div class="todo-item__row">
     <p class="todo-item__description"> {{todo.description | cutText}}</p>
-    <div class="todo-item__control">
-      <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
+  </div>
+  <div class="todo-item__control">
+    <div class="todo-item__control-group">
       <button mat-flat-button class="btn--secondary" (click)="editTodo(todo.id)">Редактировать</button>
+      <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
     </div>
-
+    <button mat-flat-button class="btn--secondary" (click)="setCompleteTodo()">{{todo.isComplete ? "В работу" :
+      "Завершить"}}</button>
   </div>
 </div>

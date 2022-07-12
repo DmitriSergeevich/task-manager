@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TodoService } from 'src/app/todo.service';
+import { TodoService, TTodo } from 'src/app/todo.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -13,6 +13,7 @@ export class TodoFormComponent implements OnInit {
   form!: FormGroup;
   id: string | null = null;
   isTodoLoading = false;
+  todo: TTodo | null = null;
 
   constructor(
     private todoService: TodoService,
@@ -44,6 +45,7 @@ export class TodoFormComponent implements OnInit {
           description: data.description,
           deadline: new Date(data.deadline).toISOString(),
         });
+        this.todo = data;
       })
       .finally(() => (this.isTodoLoading = false));
   }
@@ -53,11 +55,12 @@ export class TodoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const todo = {
+    const todo: TTodo = {
       id: this.id || new Date().getTime().toString(),
       title: this.form.value.title,
       description: this.form.value.description,
       deadline: this.form.value.deadline,
+      isComplete: this.todo?.isComplete || false,
     };
 
     this.id ? this.todoService.editTodo(todo) : this.todoService.addTodo(todo);
