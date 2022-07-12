@@ -11,6 +11,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { DeadlineDirective } from 'src/app/directives/deadline.directive';
 import { RuDatePipe } from 'src/app/pipes/ruDate.pipe';
 import { TodoViewComponent } from './todo-view/todo-view.component';
+import { CutTextPipe } from 'src/app/pipes/cutText.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TodoViewComponent } from './todo-view/todo-view.component';
     DeadlineDirective,
     RuDatePipe,
     TodoViewComponent,
+    CutTextPipe,
   ],
   imports: [
     CommonModule,
