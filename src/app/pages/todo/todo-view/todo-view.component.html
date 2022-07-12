@@ -1,4 +1,22 @@
-<div class="page-wrapper">
-  <p>{{title}}</p>
-  <p>{{description}}</p>
+<div>
+  <div *ngIf="!isTodoLoading; else loader" class="todo-view">
+    <div class="link-back">
+      <a mat-button routerLink="/">&lt; Назад</a>
+    </div>
+    <h2 class="todo-view__title">
+      {{title}}
+    </h2>
+    <div class="todo-view__deadline">Deadline: <span deadline [date]="deadline">{{deadline | ruDate}}</span></div>
+    <p class="todo-view__description"> {{description}}</p>
+    <div class="todo-view__control">
+      <button mat-flat-button class="btn--secondary" (click)="editTodo">Редактировать</button>
+      <button mat-stroked-button class="btn--secondary" (click)="removeTodo">Удалить</button>
+    </div>
+  </div>
+
+  <ng-template #loader>
+    <div ng class="loader">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
 </div>
