@@ -22,4 +22,10 @@ export class TodoItemComponent implements OnInit {
   editTodo(id: string) {
     this.router.navigate(['edit/' + id]);
   }
+
+  setCompleteTodo() {
+    console.log('status');
+
+    this.todoService.setIsComplete(this.todo.id, !this.todo.isComplete);
+  }
 }
