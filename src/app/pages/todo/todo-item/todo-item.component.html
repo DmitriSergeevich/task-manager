@@ -6,7 +6,7 @@
     <div>Deadline: <span deadline [date]="todo.deadline">{{todo.deadline | ruDate}}</span></div>
   </div>
   <div class="todo-item__row">
-    <p class="todo-item__description"> {{todo.description}}</p>
+    <p class="todo-item__description"> {{todo.description | cutText}}</p>
     <div class="todo-item__control">
       <button mat-stroked-button class="btn--secondary" (click)="removeTodo(todo.id)">Удалить</button>
       <button mat-flat-button class="btn--secondary" (click)="editTodo(todo.id)">Редактировать</button>
